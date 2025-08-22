@@ -1,0 +1,87 @@
+.home-container {
+  display: flex;
+  align-items: center;
+}
+/* .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  justify-content: space-between;
+} */
+
+/* Tablet screens */
+@media (max-width: 1024px) {
+  .header {
+    gap: 200px; /* smaller gap for medium screens */
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: row; /* stack items vertically */
+    gap: 20px; /* smaller space between items */
+  }
+}
+
+.header .drawer {
+  display: flex;
+  margin: auto;
+  font-size: larger;
+  justify-content: space-between;
+  list-style-type: none;
+  gap: 10px;
+}
+.logo {
+  margin-left: 20px;
+}
+
+/* New header styling for testing*/
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  background: #fff;
+  width: 100%;
+  flex-shrink: inherit;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.drawer {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  align-items: center;
+  margin: auto;
+  flex-direction: row;
+  justify-items: center;
+}
+
+.drawer li a {
+  text-decoration: none;
+  color: #131313;
+  font-weight: 500;
+  align-items: right;
+  margin-right: 20px;
+  justify-content: right;
+}
+
+.drawer li a:hover {
+  color: #007bff;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+/*.carticon {
+}*/
