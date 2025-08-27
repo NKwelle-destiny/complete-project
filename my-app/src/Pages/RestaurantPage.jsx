@@ -6,21 +6,16 @@ import {
   Typography,
   Button,
 } from "@mui/material";
+
+import { useContext } from "react";
+import { CartContext } from "./CartContext"; // adjust path if needed
+
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import networkImg from "../assets/images/network.jpg"; // restaurant image component
 
-import d1Img from "../assets/images/ndole.jpeg";
-import d2Img from "../assets/images/garri.jpg";
-import d4Img from "../assets/images/Crispy.jpeg";
-import d3Img from "../assets/images/shawama.jpeg";
-import d5Img from "../assets/images/spagati.jpeg";
-import d6Img from "../assets/images/Friedbrownrice.jpeg";
-import d7Img from "../assets/images/Pizza.jpeg";
-import d8Img from "../assets/images/burger.jpg";
-import d9Img from "../assets/images/Drinks.jpeg";
-
+// ✅ General foods
 import ndoleImg from "../assets/images/ndole.jpeg";
 import garriImg from "../assets/images/garri.jpg";
 import CrispyImg from "../assets/images/Crispy.jpeg";
@@ -31,15 +26,26 @@ import PizzaImg from "../assets/images/Pizza.jpeg";
 import burgerImg from "../assets/images/burger.jpg";
 import DrinksImg from "../assets/images/Drinks.jpeg";
 
-import ndoleImg from "../assets/images/ndole.jpeg";
-import garriImg from "../assets/images/garri.jpg";
-import CrispyImg from "../assets/images/Crispy.jpeg";
-import shawamaImg from "../assets/images/shawama.jpeg";
-import spagatiImg from "../assets/images/spagati.jpeg";
-import FriedbrownriceImg from "../assets/images/Friedbrownrice.jpeg";
-import PizzaImg from "../assets/images/Pizza.jpeg";
-import burgerImg from "../assets/images/burger.jpg";
-import DrinksImg from "../assets/images/Drinks.jpeg";
+// ✅ Diabetic foods
+import d1Img from "../assets/images/d1.jpg";
+
+import d3Img from "../assets/images/d3.jpg";
+import d4Img from "../assets/images/d4.jpg";
+import d5Img from "../assets/images/d5.jpg";
+import d6Img from "../assets/images/d6.jpg";
+import d7Img from "../assets/images/d7.jpg";
+import d8Img from "../assets/images/d8.jpg";
+import d9Img from "../assets/images/d9.jpg";
+
+// ✅ Vegetarian foods
+import v1Img from "../assets/images/v1.jpg";
+import v2Img from "../assets/images/v2.jpg";
+import v3Img from "../assets/images/v3.jpg";
+import v4Img from "../assets/images/v4.jpg";
+import v5Img from "../assets/images/v5.jpg";
+import v6Img from "../assets/images/v6.jpg";
+import v7Img from "../assets/images/v7.jpg";
+import v8Img from "../assets/images/v8.jpg";
 
 import "./RestaurantPage.css";
 
@@ -68,7 +74,7 @@ function FoodCard({ imageSrc, name, description, price, onAddToCart }) {
         className="food-image"
       />
       <div className="food-details">
-        <Typography variant="h6" className="food-name">
+        <Typography variant="h5" className="food-name">
           {name}
         </Typography>
         <Typography variant="body2" className="food-description">
@@ -103,15 +109,182 @@ function FoodCard({ imageSrc, name, description, price, onAddToCart }) {
   );
 }
 
+// ✅ Food datasets
+const generalFoods = [
+  {
+    imageSrc: ndoleImg,
+    name: "Ndole with Plantain",
+    description: "Well prepared Ndolle with rich perfection",
+    price: 2500,
+  },
+  {
+    imageSrc: garriImg,
+    name: "Garri and Eru",
+    description: "Well prepared garri and eru",
+    price: 1000,
+  },
+  {
+    imageSrc: CrispyImg,
+    name: "Crispy Chicken",
+    description: "Get your well served crispy chicken",
+    price: 2500,
+  },
+  {
+    imageSrc: shawamaImg,
+    name: "Shawarma",
+    description: "Get the best shawarma",
+    price: 1000,
+  },
+  {
+    imageSrc: spagatiImg,
+    name: "Spaghetti",
+    description: "Delicious and tasty spaghetti",
+    price: 1500,
+  },
+  {
+    imageSrc: FriedbrownriceImg,
+    name: "Fried Rice",
+    description: "Enjoy your delicious fried rice",
+    price: 2000,
+  },
+  {
+    imageSrc: PizzaImg,
+    name: "Pizza",
+    description: "Get your best pizza",
+    price: 4000,
+  },
+  {
+    imageSrc: burgerImg,
+    name: "Burger",
+    description: "Your awesome burger",
+    price: 2500,
+  },
+];
+
+const diabeticFoods = [
+  {
+    imageSrc: d1Img,
+    name: "Diabetic Dish 1",
+    description: "Healthy meal option",
+    price: 2000,
+  },
+
+  {
+    imageSrc: d3Img,
+    name: "Diabetic Dish 3",
+    description: "Nutritious and balanced",
+    price: 1800,
+  },
+  {
+    imageSrc: d4Img,
+    name: "Diabetic Dish 4",
+    description: "Carefully crafted meal",
+    price: 2200,
+  },
+  {
+    imageSrc: d5Img,
+    name: "Diabetic Dish 5",
+    description: "Diabetic-friendly meal",
+    price: 2300,
+  },
+  {
+    imageSrc: d6Img,
+    name: "Diabetic Dish 6",
+    description: "Rich in fibers",
+    price: 1900,
+  },
+  {
+    imageSrc: d7Img,
+    name: "Diabetic Dish 7",
+    description: "Balanced nutrition",
+    price: 2400,
+  },
+  {
+    imageSrc: d8Img,
+    name: "Diabetic Dish 8",
+    description: "Delicious and healthy",
+    price: 2100,
+  },
+  {
+    imageSrc: d9Img,
+    name: "Diabetic Dish 9",
+    description: "Safe for diabetics",
+    price: 2000,
+  },
+];
+
+const vegetarianFoods = [
+  {
+    imageSrc: v1Img,
+    name: "Vegetarian Dish 1",
+    description: "Fresh veggies delight",
+    price: 2000,
+  },
+  {
+    imageSrc: v2Img,
+    name: "Vegetarian Dish 2",
+    description: "Nutritious vegetarian meal",
+    price: 2200,
+  },
+  {
+    imageSrc: v3Img,
+    name: "Vegetarian Dish 3",
+    description: "Delicious plant-based meal",
+    price: 1800,
+  },
+  {
+    imageSrc: v4Img,
+    name: "Vegetarian Dish 4",
+    description: "Tasty veggie combo",
+    price: 2300,
+  },
+  {
+    imageSrc: v5Img,
+    name: "Vegetarian Dish 5",
+    description: "Healthy plant meal",
+    price: 2500,
+  },
+  {
+    imageSrc: v6Img,
+    name: "Vegetarian Dish 6",
+    description: "Rich vegetarian delight",
+    price: 2100,
+  },
+  {
+    imageSrc: v7Img,
+    name: "Vegetarian Dish 7",
+    description: "Vegan approved",
+    price: 2400,
+  },
+  {
+    imageSrc: v8Img,
+    name: "Vegetarian Dish 8",
+    description: "Fresh and tasty",
+    price: 2000,
+  },
+];
+
 function RestaurantPage() {
+  const [menu, setMenu] = useState("general");
+  const { addToCart } = useContext(CartContext);
+
   const handleBack = () => {
     window.history.back();
   };
-
   const handleAddToCart = (foodName, quantity) => {
-    console.log(`${foodName} added with quantity ${quantity}`);
-    // here you can hook into global cart state
+    const foodList = [...generalFoods, ...diabeticFoods, ...vegetarianFoods];
+    const selectedItems = foodList.find((item) => item.name === foodName);
+    if (selectedItems) {
+      addToCart(selectedItems, quantity);
+    }
   };
+
+  const currentFoods =
+    menu === "general"
+      ? generalFoods
+      : menu === "diabetic"
+      ? diabeticFoods
+      : vegetarianFoods;
 
   return (
     <div className="gallery-container">
@@ -124,33 +297,7 @@ function RestaurantPage() {
           <TextField label="Search" variant="outlined" fullWidth />
         </div>
       </div>
-      {/* Cards row */}
-      <div className="cards-row">
-        <div className="card-wrapper">
-          <CardMedia
-            component="img"
-            height="200"
-            image={burgerImg}
-            alt="Fast Food"
-            className="card-image"
-          />
-          <Typography variant="h6" align="center">
-            Fast Food
-          </Typography>
-        </div>
 
-        <div className="card-wrapper">
-          <CardMedia
-            component="img"
-            height="200"
-            image={DrinksImg}
-            className="card-image"
-          />
-          <Typography variant="h6" align="center">
-            Drinks
-          </Typography>
-        </div>
-      </div>
       {/* Full width overlay image */}
       <div className="full-width-image" style={{ height: "400px" }}>
         <CardMedia
@@ -166,91 +313,50 @@ function RestaurantPage() {
           </Typography>
         </div>
       </div>
+
       {/* Menu buttons */}
       <div>
         <h3>Menu</h3>
       </div>
       <div className="menu-buttons">
-        <Button variant="contained" color="success">
+        <Button
+          variant={menu === "general" ? "contained" : "outlined"}
+          color="success"
+          onClick={() => setMenu("general")}
+        >
           General
         </Button>
-        <Button variant="contained" color="secondary">
+        <Button
+          variant={menu === "diabetic" ? "contained" : "outlined"}
+          color="secondary"
+          onClick={() => setMenu("diabetic")}
+        >
           Diabetic
         </Button>
-        <Button variant="contained" color="primary">
+        <Button
+          variant={menu === "vegetarian" ? "contained" : "outlined"}
+          color="primary"
+          onClick={() => setMenu("vegetarian")}
+        >
           Vegetarian
         </Button>
       </div>
-      {/* ✅ Food Cards List */}
-      <div className="food-list">
-        <FoodCard
-          imageSrc={ndoleImg}
-          name="Ndole with Plantain"
-          description="Well prepared Ndolle with rich perfection"
-          price={2500}
-          onAddToCart={handleAddToCart}
-        />
 
-        <FoodCard
-          imageSrc={garriImg}
-          name="Garri and Eru"
-          description="Well prepared garri and eru"
-          price={1000}
-          onAddToCart={handleAddToCart}
-        />
-      </div>
-      {/* ✅ Food Cards List */}
+      {/* Food list */}
       <div className="food-list">
-        <FoodCard
-          imageSrc={CrispyImg}
-          name="cripsy"
-          description="Get your well served Cripsy chichen"
-          price={2500}
-          onAddToCart={handleAddToCart}
-        />
-
-        <FoodCard
-          imageSrc={shawamaImg}
-          name="shawama"
-          description="Get the best shawama  "
-          price={1000}
-          onAddToCart={handleAddToCart}
-        />
+        {currentFoods.map((item, index) => (
+          <FoodCard
+            key={index}
+            imageSrc={item.imageSrc}
+            name={item.name}
+            description={item.description}
+            price={item.price}
+            onAddToCart={handleAddToCart}
+          />
+        ))}
       </div>
-      <div className="food-list">
-        <FoodCard
-          imageSrc={spagatiImg}
-          name="spaghetti"
-          description="Get the best and tastety spaghetti"
-          price={1500}
-          onAddToCart={handleAddToCart}
-        />
 
-        <FoodCard
-          imageSrc={FriedbrownriceImg}
-          name="Fried Rice"
-          description="Enjoy your deliciouse Fried Rice"
-          price={2000}
-          onAddToCart={handleAddToCart}
-        />
-      </div>
-      <div className="food-list">
-        <FoodCard
-          imageSrc={PizzaImg}
-          name="Pizza"
-          description="Get your best Pizza"
-          price={4000}
-          onAddToCart={handleAddToCart}
-        />
-
-        <FoodCard
-          imageSrc={burgerImg}
-          name="Burger"
-          description="Your awesome Burger"
-          price={2500}
-          onAddToCart={handleAddToCart}
-        />
-      </div>
+      {/* Footer */}
       <div className="line"></div>
       <div className="footer-links">
         <span>

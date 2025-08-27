@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./Contacts.css";
-
+import networkImg from "../assets/images/network.jpg"; // restaurant image component
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
@@ -54,7 +54,7 @@ const Contacts = () => {
           <p>we're here to help reach out for any question or concern</p>
         </div>
         <div className="about-image">
-          <img src={} alt="Healthy meal" />
+          <img src={networkImg} alt="Healthy meal" />
         </div>
       </div>
 

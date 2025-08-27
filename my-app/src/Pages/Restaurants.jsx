@@ -104,6 +104,7 @@ export default function SearchWithHeading() {
   return (
     <div className="search-container">
       {/* Search Bar */}
+
       <div className="search-bar-container">
         <TextField
           label="Search restaurants..."
