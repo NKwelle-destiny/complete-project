@@ -182,7 +182,8 @@ width: fit-content;
   color: brown;
   width: 250px;
   /* removed border-radius to keep images rectangular */
-  height: 250px;
+ 
+ img{ height: 250px;
   margin: auto;
   align-items: center;
   display: flex;

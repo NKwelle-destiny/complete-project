@@ -4,8 +4,8 @@ import Restaurants from "./Pages/Restaurants.jsx";
 import RestaurantPage from "./Pages/RestaurantPage.jsx";
 import About from "./Pages/About.jsx";
 import Header from "./component/Header.jsx";
-import Contacts from "./Pages/Contacts.jsx";
-import Cart from "./Pages/Cart.jsx";
+import Contacts from "./Pages/contacts.jsx";
+import Cart from "./Pages/cart.jsx";
 import Landing from "./Pages/Landing.jsx";
 import Sign from "./Pages/Sign.jsx";
 import Login from "./Pages/Login.jsx";
@@ -35,7 +35,7 @@ function Layout() {
         <Route path="/restaurants/:id" element={<RestaurantPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contacts" element={<Contacts />} />
-        <Route path="/Cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </>
   );

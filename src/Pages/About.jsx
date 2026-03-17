@@ -6,7 +6,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import Aboutpage from "../assets/images/Aboutpage.jpg";
 import Deliveryguy from "../assets/images/Deliveryguy.jpg";
 import Menu from "../assets/images/Menu.jpeg";
-import Cook from "../assets/images/Cook.jpg";
+import Cook from "../assets/images/cook.jpg";
 import Friedfish from "../assets/images/Friedfish.jpeg";
 const About = () => {
   return (
